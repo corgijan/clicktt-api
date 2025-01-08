@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ctischtennisanzeige"
+version = "0.1.0"
+description = ""
+authors = ["Iamjava <jan.vaorin@tu-dortmund.de>"]
+readme = "README.md"
+
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+beautifulsoup4 = "^4.10.0"
+requests = "^2.26.0"
+flask = "^3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
