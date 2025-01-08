@@ -17,16 +17,11 @@ driver = webdriver.Chrome(options=options)
 
 
 def parse_tt_to_result(url: str) -> Dict[str, str]:
-    # Set up Selenium WebDriver (e.g., using ChromeDriver)
-    # Navigate to the URL
     try:
         driver.get(url)
 
-        # Wait until the desired element is present
         wait = WebDriverWait(driver, 10)
         meeting_div = wait.until(EC.presence_of_element_located((By.ID, 'currentCalculatedTotalScore')))
-        # Extract the scores
-        print()
         scores = meeting_div.get_attribute('innerHTML').split(':')
         heim = scores[0].strip()
         gast = scores[1].strip()

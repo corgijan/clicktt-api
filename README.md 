@@ -1,1 +1,4 @@
 Test
+1. install chromium
+2. install `pip3 install -r requirements.txt`
+3. request /parse?tt-url=${url}
