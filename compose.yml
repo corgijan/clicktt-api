@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - .:/app:z
+    environment:
+      - FLASK_APP=app.py
+      - INCONTAINER=yes

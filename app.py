@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from templates import tmp_form, tmp_base
 import requests
-from bs4 import BeautifulSoup
 import random
 import json
 from typing import Dict
@@ -9,11 +8,18 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import os
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from webdriver_manager.chrome import ChromeDriverManager
 app = Flask(__name__)
 
-options = webdriver.ChromeOptions()
-options.add_argument('--headless')  # Run in headless mode for performance
-driver = webdriver.Chrome(options=options)
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+ChromeDriverManager().install(),
+driver = webdriver.Chrome( options=chrome_options)
 
 
 def parse_tt_to_result(url: str) -> Dict[str, str]:
